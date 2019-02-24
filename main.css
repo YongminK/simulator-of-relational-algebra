@@ -24,18 +24,28 @@ h1{
   width: 100%;
 
 }
-.enter-button{
-}
+
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
   background-color: #28a745;
 }
 
+.table-green{
+  display: table;
+  border-spacing: 2px;
+  border-collapse: collapse;
+  width: 100%;
+}
 
+.table-green th{
+  padding: .75rem;
+}
 
-.table td, .table th, .table thead th{
-  border-top:  
-  border-bottom: none;
+.table-green td{
+  padding: .20rem;
+
+  display: table-cell;
+
 }
  .green-th{
   background-color: #E6EEE8;
@@ -45,39 +55,48 @@ h1{
 .new-row{
   background-color: #E6EEE8;
   color: #000;
-  border-right:1px solid #28a745;
+  border:1px solid #28a745;
+    vertical-align: top;
+
 }
 .delete-row{
   background-color: #fff;
   border: none;
+  padding-right: 15px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.empty-th{
+  width: 50px;
 }
 
 #data_table tr td:last-child a.delete {
-  top: 8px;
-  position: relative;
   color: red;
 }
 
 .table-bottom {
-  width: 100%;
-  height: 40px;
+  width: 95%;
+  height: 50px;
   position: relative;
-  border: 1px solid #28a745;
+  text-align: center;
+  padding-top: 15px;
 }
 
 .table-bottom a.add-button {
   color: green;
-  right: 8px;
-  position: absolute;
-  top: 5px;
 }
 
 .table-bottom a.add-button i.material-icons {
   font-size: 30px;
 }
 
+.icon-add{
+  border: 1px solid green;
+  border-radius: 25%;
+  padding: 10px;
+}
+
 .delete, .delete:hover {
   color: red;
-  position: relative;
-  top: 8px;
 }

@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="main.css">
   
 </head>
 
@@ -38,13 +38,13 @@
         </div>
       </div>
 
-      <div class="col md-8" v-if="tables_length > 0">
+      <div class="col md-8 right-part" v-if="tables_length > 0">
         <ul class="nav nav-pills">
           <li class="nav-item" v-for="(table, key) in tables">
             <a class="nav-link" href="#" v-bind:class="{active: selectedTable == key}" @click.prevent="selectTab(key)">{% raw %}{{key}}{% endraw %}</a>
           </li>
         </ul>
-        <table class="table table-striped mb-0">
+        <table class="table-green mb-0">
           <thead>
             <tr>
                <th scope="col" class="green-th" style="text-align: center" v-for="field in tables[selectedTable].headers">{% raw %}{{field}}{% endraw %}</th>
@@ -59,7 +59,7 @@
           </tbody>
         </table>
         <div class="table-bottom">
-          <a href="#" class="add-button ml-auto" @click.prevent="addRow"><i class="material-icons">add</i></a>
+          <a href="#" class="add-button ml-auto" @click.prevent="addRow"><i class="material-icons icon-add">add</i></a>
         </div>
       </div>
     </div>   
