@@ -145,18 +145,33 @@
           this.selectedTable = Object.keys(res)[0] ? Object.keys(res)[0] : "";
           this.tables = res;
         },
+        // sendData() {
+        //   $.post('./data', {
+        //     query: this.query,
+        //     tables: JSON.stringify(this.tables),
+        //     definition: this.structure
+        //   }, (data) => {
+        //     this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
+        //     if(data.error) {
+        //         alert(data.message)
+        //     }
+        //     this.resultTables = data.views_data;
+        //   })
+        // },
         sendData() {
-          $.post('./data', {
-            query: this.query,
-            tables: JSON.stringify(this.tables),
-            definition: this.structure
-          }, (data) => {
+            var data = {
+                "error": false, 
+                "views_data": {
+                  "R1": {
+                    "headers": ["A", "B", "C"], 
+                    "rows": [[1, 2, 3], [4, 5, 6]]}, 
+                  "R2": {
+                    "headers": ["D", "E"], 
+                    "rows": [[7, 8], [9, 10], [11, 12]]}
+                }
+            };
             this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
-            if(data.error) {
-                alert(data.message)
-            }
             this.resultTables = data.views_data;
-          })
         },
         selectTab(table) {
           this.selectedTable = table;
