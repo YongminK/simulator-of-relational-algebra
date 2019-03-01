@@ -25,21 +25,39 @@ h1{
 
 }
 
-/*.scroll-area {
-  width: 100%;
+.right-part{
+  display: grid;
+  grid-template-rows: 300px 300px;
+  grid-row-gap: 80px;
 }
 
-thead>tr {
-  position: relative;
-  display: block;
+
+.table-fixed tbody {
+max-height: 200px;
+overflow-y: auto;
+width: 100%;
+}
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed tr,
+.table-fixed td,
+.table-fixed th {
+display: block;
+}
+.table-fixed tr:after {
+content: "";
+display: block;
+visibility: hidden;
+clear: both;
+}
+.table-fixed tbody td,
+.table-fixed thead > tr > th {
+float: left;
 }
 
-tbody {
-  display: block;
-  height: 250px;
-  overflow: auto;
+tbody::-webkit-scrollbar { 
+    display: none; 
 }
-*/
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
   background-color: #28a745;
@@ -65,8 +83,12 @@ tbody {
   background-color: #E6EEE8;
   color: #000;
   border:1px solid #28a745;
-  max-width: 150px;
   word-wrap: break-word;
+  font-size: small;
+  width: 150px;
+  height: 80px;
+
+
 }
 .new-row{
   background-color: #E6EEE8;
@@ -74,7 +96,6 @@ tbody {
   border:1px solid #28a745;
   vertical-align: top;
   width: 150px;
-
 }
 
 .delete-row{
@@ -86,7 +107,7 @@ tbody {
 }
 
 .empty-th{
-  width: 50px;
+  width: 39px;
 }
 
 #data_table tr td:last-child a.delete {
