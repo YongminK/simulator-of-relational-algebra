@@ -28,12 +28,12 @@ h1{
 .right-part{
   display: grid;
   grid-template-rows: 300px 300px;
-  grid-row-gap: 80px;
+  grid-row-gap: 50px;
 }
 
 
 .table-fixed tbody {
-max-height: 200px;
+max-height: 150px;
 overflow-y: auto;
 width: 100%;
 }
@@ -67,7 +67,7 @@ tbody::-webkit-scrollbar {
   display: table;
   border-spacing: 2px;
   border-collapse: collapse;
-
+  min-width: 450px;
 }
 
 .table-green th{
@@ -86,8 +86,8 @@ tbody::-webkit-scrollbar {
   word-wrap: break-word;
   font-size: small;
   width: 150px;
-  height: 80px;
-
+  height: 60px;
+  vertical-align: middle;
 
 }
 .new-row{
@@ -138,4 +138,8 @@ tbody::-webkit-scrollbar {
 
 .delete, .delete:hover {
   color: red;
+}
+.result-white{
+    background-color: white;
+    border-right: 1px solid #28a745;
 }

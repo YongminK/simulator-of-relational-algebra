@@ -66,7 +66,6 @@
           
         </div>
         <div class="col md-8" v-if="resultTab && resultTables">
-            <center><h3>Результат</h3></center>
                 <ul class="nav nav-pills">
                   <li class="nav-item" v-for="(table, key) in resultTables">
                     <a class="nav-link" href="#" v-bind:class="{active: resultTab == key}" @click.prevent="selectResultTab(key)">{% raw %}{{key}}{% endraw %}</a>
@@ -80,8 +79,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr v-for="(row, key) in resultTables[resultTab].rows">
-                        <td v-for="(field, key2) in row" class="new-row">{% raw %}{{ resultTables[resultTab].rows[key][key2]}}{% endraw %}</td>
+                      <tr  v-for="(row, key) in resultTables[resultTab].rows" >
+                        <td class="result-white new-row" v-for="(field, key2) in row" class="new-row">{% raw %}{{ resultTables[resultTab].rows[key][key2]}}{% endraw %}</td>
                       </tr>
                     </tbody>
                   </table>
