@@ -3,14 +3,15 @@ h1{
 }
 
 .enter{
-  width: 40%;
+  width: 30%;
   height: 500px;
   display: grid;
   grid-column-gap: 250px 250px;
 }
 .enter-block{
   height: 100%;
-  margin: 15px;
+  margin: 15px 15px 55px 15px;
+
 }
 .all{
   display: flex;
@@ -33,30 +34,30 @@ h1{
 
 
 .table-fixed tbody {
-max-height: 150px;
-overflow-y: auto;
-width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  width: 100%;
 }
 .table-fixed thead,
 .table-fixed tbody,
 .table-fixed tr,
 .table-fixed td,
 .table-fixed th {
-display: block;
+  display: block;
 }
 .table-fixed tr:after {
-content: "";
-display: block;
-visibility: hidden;
-clear: both;
+  content: "";
+  display: block;
+  visibility: hidden;
+  clear: both;
 }
 .table-fixed tbody td,
 .table-fixed thead > tr > th {
-float: left;
+  float: left;
 }
 
 tbody::-webkit-scrollbar { 
-    display: none; 
+  display: none; 
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
@@ -67,7 +68,7 @@ tbody::-webkit-scrollbar {
   display: table;
   border-spacing: 2px;
   border-collapse: collapse;
-  min-width: 450px;
+
 }
 
 .table-green th{
@@ -79,13 +80,13 @@ tbody::-webkit-scrollbar {
   display: table-cell;
 
 }
- .green-th{
+.green-th{
   background-color: #E6EEE8;
   color: #000;
   border:1px solid #28a745;
   word-wrap: break-word;
   font-size: small;
-  width: 150px;
+  width: 120px;
   height: 60px;
   vertical-align: middle;
 
@@ -94,8 +95,9 @@ tbody::-webkit-scrollbar {
   background-color: #E6EEE8;
   color: #000;
   border:1px solid #28a745;
-  vertical-align: top;
-  width: 150px;
+  width: 120px;
+  height:60px;
+  text-align: center;
 }
 
 .delete-row{
@@ -140,6 +142,6 @@ tbody::-webkit-scrollbar {
   color: red;
 }
 .result-white{
-    background-color: white;
-    border-right: 1px solid #28a745;
+  background-color: white;
+  border-right: 1px solid #28a745;
 }

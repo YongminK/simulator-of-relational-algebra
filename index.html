@@ -10,8 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <link rel="stylesheet" type="text/css" href="main.css">
-  
+  <link rel="stylesheet" type="text/css" href="main.css">  
 </head>
 
 <body>
@@ -36,14 +35,17 @@
             <button type="button" class="btn btn-success enter-button"  @click="sendData" name="button">Отправить</button>
           </div>
         </div>
+
       </div>
+
       <div class="right-part">
-        <div class="col md-8" v-if="tables_length > 0">
+        <div  v-if="tables_length > 0">
           <ul class="nav nav-pills">
             <li class="nav-item" v-for="(table, key) in tables">
               <a class="nav-link" href="#" v-bind:class="{active: selectedTable == key}" @click.prevent="selectTab(key)">{% raw %}{{key}}{% endraw %}</a>
             </li>
           </ul>
+
           <div class="scroll-area">
             <table class="table-green mb-0 table-fixed">
               <thead>
@@ -52,7 +54,7 @@
                    <th scope="col" class="empty-th"></th>
                 </tr>
               </thead>
-              <tbody id="style-15">
+              <tbody>
                 <tr v-for="(row, key) in tables[selectedTable].rows">
                   <td v-for="(field, key2) in row" class="new-row "><input type="text" name="" class="form-control" v-model="tables[selectedTable].rows[key][key2]"></td>
                   <td class="delete-row"><a class="delete" @click="deleteRow(selectedTable, key)" href="#"><i class="material-icons">clear</i></a></td>
@@ -65,7 +67,7 @@
           </div>
           
         </div>
-        <div class="col md-8" v-if="resultTab && resultTables">
+        <div  v-if="resultTab && resultTables">
                 <ul class="nav nav-pills">
                   <li class="nav-item" v-for="(table, key) in resultTables">
                     <a class="nav-link" href="#" v-bind:class="{active: resultTab == key}" @click.prevent="selectResultTab(key)">{% raw %}{{key}}{% endraw %}</a>
@@ -172,7 +174,7 @@
                     "rows": [[1, 2, 3], [4, 5, 6]]}, 
                   "R2": {
                     "headers": ["D", "E"], 
-                    "rows": [[7, 8], [9, 10], [11, 12]]}
+                    "rows": [[7, 8], [9, 10], [11, 12],[7, 8], [9, 10],[7, 8], [9, 10]]}
                 }
             };
             this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
