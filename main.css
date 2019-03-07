@@ -3,7 +3,7 @@ h1{
 }
 .all{
   display: grid;
-  grid-template-rows: 30vh auto;
+  grid-template-rows: 20em auto;
 }
 .top-part{
   display: flex;
@@ -25,6 +25,9 @@ h1{
 .text{
   margin-right: 15px;
   resize: none;
+  height: 150px;
+  width: 100%;
+  overflow-x: auto;
 }
 
 /*TABLE*/
