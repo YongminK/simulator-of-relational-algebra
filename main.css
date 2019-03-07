@@ -1,22 +1,24 @@
 h1{
   margin-bottom: 40px;
 }
+
 .all{
   display: grid;
   grid-template-rows: 20em auto;
+
 }
 .top-part{
   display: flex;
+  justify-content: space-between;
 }
 .bottom-part{
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .enter-block{
   height: 100%;
-  width: 40%;
-  margin-right: 150px;
+  width: 45%;
 }
 .text-block{
   display: grid;
@@ -39,9 +41,10 @@ h1{
   display: table;
   border-spacing: 2px;
   border-collapse: collapse;
+  max-width: 540px;
 }
 .first-table ,.second-table{
-  width: auto;
+  max-width: 45%;
 }
 .first-table{
   margin-right: 10px;
@@ -78,11 +81,11 @@ tbody::-webkit-scrollbar {
   color: #000;
   border:1px solid #28a745;
   word-wrap: break-word;
-  font-size: small;
-  /*width: 120px;
-  height: 60px;*/
+  font-size: .75rem;
   vertical-align: middle;
-  padding: .75rem;
+  padding: .5rem;
+  min-width: 70px;
+  max-width: 90px;
 }
 .empty-th{
   width: 39px;
@@ -95,8 +98,6 @@ tbody::-webkit-scrollbar {
   background-color: #E6EEE8;
   color: #000;
   border:1px solid #28a745;
-  /*width: 120px;
-  height:60px;*/
   text-align: center;
 }
 /*BUTTONS*/
@@ -138,5 +139,10 @@ tbody::-webkit-scrollbar {
 }
 
 
-
+@media only screen and (max-width: 992px) {
+  .bottom-part{
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+} 
 

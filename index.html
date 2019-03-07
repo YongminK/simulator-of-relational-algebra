@@ -14,11 +14,14 @@
 </head>
 
 <body>
-  <div class="container-fluid" id="app">
+  <div class="container" id="app">
     <h1 class="text-center">Тренажер реляционной алгебры</h1>
+    <div class="instruction">
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+    </div>
     <div class="all">
       <div class="top-part">
-        <div class="enter-block">
+        <div class="enter-block" >
           <h3>Описание отношений</h3>
           <div class="text-block">
             <textarea class="text" name="name" rows="5" cols="50" v-model="structure"></textarea>
@@ -142,34 +145,34 @@
           this.selectedTable = Object.keys(res)[0] ? Object.keys(res)[0] : "";
           this.tables = res;
         },
-        sendData() {
-          $.post('./data', {
-            query: this.query,
-            tables: JSON.stringify(this.tables),
-            definition: this.structure
-          }, (data) => {
-            this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
-            if(data.error) {
-                alert(data.message)
-            }
-            this.resultTables = data.views_data;
-          })
-        },
         // sendData() {
-        //   var data = {
-        //     "error": false, 
-        //     "views_data": {
-        //       "R1": {
-        //         "headers": ["A", "B", "C"], 
-        //         "rows": [[1, 2, 3], [4, 5, 6]]}, 
-        //         "R2": {
-        //           "headers": ["D", "E"], 
-        //           "rows": [[7, 8], [9, 10], [11, 12],[7, 8], [9, 10],[7, 8], [9, 10]]}
-        //         }
-        //       };
-        //       this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
-        //       this.resultTables = data.views_data;
-        //     },
+        //   $.post('./data', {
+        //     query: this.query,
+        //     tables: JSON.stringify(this.tables),
+        //     definition: this.structure
+        //   }, (data) => {
+        //     this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
+        //     if(data.error) {
+        //         alert(data.message)
+        //     }
+        //     this.resultTables = data.views_data;
+        //   })
+        // },
+        sendData() {
+          var data = {
+            "error": false, 
+            "views_data": {
+              "R1": {
+                "headers": ["A", "B", "C"], 
+                "rows": [[1, 2, 3], [4, 5, 6]]}, 
+                "R2": {
+                  "headers": ["D", "E"], 
+                  "rows": [[7, 8], [9, 10], [11, 12],[7, 8], [9, 10],[7, 8], [9, 10]]}
+                }
+              };
+              this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
+              this.resultTables = data.views_data;
+            },
             selectTab(table) {
               this.selectedTable = table;
             },
