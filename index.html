@@ -11,13 +11,16 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <link rel="stylesheet" type="text/css" href="main.css">  
+  <meta name="viewport" content="width=device-width" />
+
 </head>
 
 <body>
   <div class="container" id="app">
     <h1 class="text-center">Тренажер реляционной алгебры</h1>
-    <div class="instruction">
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+    <div >
+      <button onmousedown="viewDiv()" class="instruction-button btn btn-success">Инструкция</button>
+      <p id="instruction">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
     </div>
     <div class="all">
       <div class="top-part">
@@ -88,7 +91,15 @@
       </div> 
     </div>
   </div>
-
+<script type="text/javascript">
+  function viewDiv(){
+    var e = document.getElementById("instruction");
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+};
+</script>
 <script type="text/javascript">
   var app = new Vue({
     el: '#app',

@@ -5,7 +5,6 @@ h1{
 .all{
   display: grid;
   grid-template-rows: 20em auto;
-
 }
 .top-part{
   display: flex;
@@ -15,7 +14,12 @@ h1{
   display: flex;
   justify-content: space-between;
 }
-
+.instruction-button{
+  display: none;
+}
+#instruction{
+  text-align: justify;
+}
 .enter-block{
   height: 100%;
   width: 45%;
@@ -30,6 +34,7 @@ h1{
   height: 150px;
   width: 100%;
   overflow-x: auto;
+  font-family: Courier New,Courier,Lucida Sans Typewriter,Lucida Typewriter,monospace; 
 }
 
 /*TABLE*/
@@ -140,9 +145,32 @@ tbody::-webkit-scrollbar {
 
 
 @media only screen and (max-width: 992px) {
+  .all{
+    grid-template-rows: 50em auto;
+    grid-row-gap: 50px;
+  }
   .bottom-part{
     flex-wrap: wrap;
-    flex-direction: column;
+    flex-direction: column;    
   }
+
 } 
+@media only screen and (max-width: 575.98px) {
+  .top-part{
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .enter-block{
+    width: 100%;
+  }
+  .instruction-button{
+    display: block;
+    margin-bottom: 10px;
+  }
+  #instruction{
+    display: none;
+  }
+
+
+}
 
