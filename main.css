@@ -46,7 +46,6 @@ h1{
   display: table;
   border-spacing: 2px;
   border-collapse: collapse;
-  max-width: 540px;
 }
 .first-table ,.second-table{
   max-width: 45%;
@@ -89,8 +88,8 @@ tbody::-webkit-scrollbar {
   font-size: .75rem;
   vertical-align: middle;
   padding: .5rem;
-  min-width: 70px;
-  max-width: 90px;
+/*  min-width: 70px;
+  max-width: 90px;*/
 }
 .empty-th{
   width: 39px;
@@ -98,6 +97,9 @@ tbody::-webkit-scrollbar {
 .table-green td{
   padding: .20rem;
   display: table-cell;
+}
+.form-control{
+  padding: .375rem;
 }
 .new-row{
   background-color: #E6EEE8;
@@ -147,7 +149,7 @@ tbody::-webkit-scrollbar {
 @media only screen and (max-width: 992px) {
   .all{
     grid-template-rows: 50em auto;
-    grid-row-gap: 50px;
+    grid-row-gap: 10px;
   }
   .bottom-part{
     flex-wrap: wrap;
@@ -158,7 +160,7 @@ tbody::-webkit-scrollbar {
 @media only screen and (max-width: 575.98px) {
   .top-part{
     flex-direction: column;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
   .enter-block{
     width: 100%;
@@ -169,6 +171,9 @@ tbody::-webkit-scrollbar {
   }
   #instruction{
     display: none;
+  }
+  .first-table{
+    margin-bottom: 20px;
   }
 
 
