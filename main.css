@@ -146,6 +146,13 @@ tbody::-webkit-scrollbar {
   border-right: 1px solid #28a745;
 }
 
+.hide-button {
+  text-align: center;
+  color: #28a745;
+  text-decoration: dashed underline;
+  cursor: pointer;
+}
+
 
 @media only screen and (max-width: 992px) {
   .all{
@@ -167,7 +174,6 @@ tbody::-webkit-scrollbar {
   #request-h3{
     margin-bottom: 40px;
   }
-  
 }
 @media only screen and (max-width: 575.98px) {
   .container{
@@ -190,6 +196,9 @@ tbody::-webkit-scrollbar {
   }
   .first-table{
     margin-bottom: 20px;
+  }
+  .hide-button {
+    display: none;
   }
 
 

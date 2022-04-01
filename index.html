@@ -2,209 +2,242 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>Тренажер реляционной алгебры</title>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <link rel="stylesheet" type="text/css" href="main.css">  
-  <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <title>Тренажер реляционной алгебры</title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta name="viewport" content="width=device-width"/>
 
 </head>
 
 <body>
-  <div class="container" id="app">
+<div class="container" id="app">
     <h1 class="text-center">Тренажер реляционной алгебры</h1>
-    <div >
-      <button onmousedown="viewDiv()" class="instruction-button btn btn-success">Инструкция</button>
-      <p id="instruction">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+    <div>
+        <button onmousedown="viewDiv()" class="instruction-button btn btn-success">Инструкция</button>
+        <p id="instruction">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+            tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci
+            tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
+            dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis
+            at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis
+            dolore te feugait nulla facilisi.</p>
+        <p class="hide-button" onclick="viewDiv()" id="hide-desktop-button">
+            Скрыть инструкцию
+        </p>
     </div>
     <div class="all">
-      <div class="top-part">
-        <div class="enter-block" >
-          <h3>Описание отношений</h3>
-          <div class="text-block">
-            <textarea class="text" name="name" rows="5" cols="50" v-model="structure"></textarea>
-            <button type="button" class="btn btn-success enter-button"  name="button" @click="sendStructure">Сформировать</button>
-          </div>     
-        </div>
-        <div class="enter-block">
-          <h3 id="request-h3">Запрос</h3>
-          <div class="text-block">
-            <textarea class="text" name="name" rows="5" cols="50" v-model="query"></textarea>
-            <button type="button" class="btn btn-success enter-button"  @click="sendData" name="button">Отправить</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="bottom-part">
-        <div class="first-table" v-if="tables_length > 0">
-            <ul class="nav nav-pills">
-                <li class="nav-item" v-for="(table, key) in tables">
-                  <a class="nav-link" href="#" v-bind:class="{active: selectedTable == key}" @click.prevent="selectTab(key)">{% raw %}{{key}}{% endraw %}</a>
-                </li>
-              </ul>
-              <div>
-                <table class="table-green mb-0 table-fixed">
-                  <thead>
-                    <tr>
-                     <th scope="col" class="green-th" style="text-align: center" v-for="field in tables[selectedTable].headers">{% raw %}{{field}}{% endraw %}</th>
-                     <th scope="col" class="empty-th"></th>
-                   </tr>
-                 </thead>
-                 <tbody>
-                  <tr v-for="(row, key) in tables[selectedTable].rows">
-                    <td v-for="(field, key2) in row" class="new-row "><input type="text" name="" class="form-control" v-model="tables[selectedTable].rows[key][key2]"></td>
-                    <td class="delete-row"><a class="delete" @click="deleteRow(selectedTable, key)" href="#"><i class="material-icons">clear</i></a></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="table-bottom">
-                <a href="#" class="add-button ml-auto" @click.prevent="addRow"><i class="material-icons icon-add">add</i></a>
-              </div>
+        <div class="top-part">
+            <div class="enter-block">
+                <h3>Описание отношений</h3>
+                <div class="text-block">
+                    <textarea class="text" name="name" rows="5" cols="50" v-model="structure"></textarea>
+                    <button type="button" class="btn btn-success enter-button" name="button" @click="sendStructure">
+                        Сформировать
+                    </button>
+                </div>
+            </div>
+            <div class="enter-block">
+                <h3 id="request-h3">Запрос</h3>
+                <div class="text-block">
+                    <textarea class="text" name="name" rows="5" cols="50" v-model="query"></textarea>
+                    <button type="button" class="btn btn-success enter-button" @click="sendData" name="button">
+                        Отправить
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="second-table" v-if="resultTab && resultTables">
-          <ul class="nav nav-pills">
-            <li class="nav-item" v-for="(table, key) in resultTables">
-              <a class="nav-link" href="#" v-bind:class="{active: resultTab == key}" @click.prevent="selectResultTab(key)">{% raw %}{{key}}{% endraw %}</a>
-            </li>
-          </ul>
-          <div>
-            <table class="table-green mb-0  table-fixed">
-              <thead>
-                <tr>
-                  <th scope="col" class="green-th" style="text-align: center"  v-for="field in resultTables[resultTab].headers">{% raw %}{{field}}{% endraw %}</th>
-                </tr>
-              </thead>
-             <tbody>
-                <tr  v-for="(row, key) in resultTables[resultTab].rows" >
-                  <td class="result-white new-row" v-for="(field, key2) in row" class="new-row">{% raw %}{{ resultTables[resultTab].rows[key][key2]}}{% endraw %}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>                
+
+        <div class="bottom-part">
+            <div class="first-table" v-if="tables_length > 0">
+                <ul class="nav nav-pills">
+                    <li class="nav-item" v-for="(table, key) in tables">
+                        <a class="nav-link" href="#" v-bind:class="{active: selectedTable == key}"
+                           @click.prevent="selectTab(key)">{% raw %}{{key}}{% endraw %}</a>
+                    </li>
+                </ul>
+                <div>
+                    <table class="table-green mb-0 table-fixed">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="green-th" style="text-align: center"
+                                v-for="field in tables[selectedTable].headers">{% raw %}{{field}}{% endraw %}
+                            </th>
+                            <th scope="col" class="empty-th"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="(row, key) in tables[selectedTable].rows">
+                            <td v-for="(field, key2) in row" class="new-row "><input type="text" name=""
+                                                                                     class="form-control"
+                                                                                     v-model="tables[selectedTable].rows[key][key2]">
+                            </td>
+                            <td class="delete-row"><a class="delete" @click="deleteRow(selectedTable, key)" href="#"><i
+                                    class="material-icons">clear</i></a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-bottom">
+                        <a href="#" class="add-button ml-auto" @click.prevent="addRow"><i
+                                class="material-icons icon-add">add</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="second-table" v-if="resultTab && resultTables">
+                <ul class="nav nav-pills">
+                    <li class="nav-item" v-for="(table, key) in resultTables">
+                        <a class="nav-link" href="#" v-bind:class="{active: resultTab == key}"
+                           @click.prevent="selectResultTab(key)">{% raw %}{{key}}{% endraw %}</a>
+                    </li>
+                </ul>
+                <div>
+                    <table class="table-green mb-0  table-fixed">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="green-th" style="text-align: center"
+                                v-for="field in resultTables[resultTab].headers">{% raw %}{{field}}{% endraw %}
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="(row, key) in resultTables[resultTab].rows">
+                            <td class="result-white new-row" v-for="(field, key2) in row" class="new-row">{% raw
+                                %}{{ resultTables[resultTab].rows[key][key2]}}{% endraw %}
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div> 
     </div>
-  </div>
+</div>
 <script type="text/javascript">
-  function viewDiv(){
-    var e = document.getElementById("instruction");
-       if(e.style.display == 'block')
-          e.style.display = 'none';
-       else
-          e.style.display = 'block';
-};
+    function viewDiv() {
+        const e = document.getElementById("instruction");
+        const textEl = document.getElementById('hide-desktop-button');
+        if (e.style.display == 'block' || e.style.display === '') {
+            e.style.display = 'none';
+            textEl.textContent = 'Показать инструкцию'
+        }
+        else {
+            e.style.display = 'block';
+            textEl.textContent = 'Скрыть инструкцию'
+        }
+    };
 </script>
 <script type="text/javascript">
-  var app = new Vue({
-    el: '#app',
-    data: () => {
-      return {
-        title: "Тренажер реляционной алгебры",
-        tables: {},
-        query: '',
-        structure: ``,
-        resultTab: null,
-        selectedTable: null,
-        resultTables: {}
-      }
-    },
-    created() {
-
-    },
-    methods: {
-      deleteRow(table, key) {
-        this.$set(this.tables[table].rows, key, undefined);
-
-        this.tables[table].rows = this.tables[table].rows.filter((item) => {
-          return (item)
-        })
-
-          //console.log(this.tables[table]);
-
-        },
-        sendStructure() {
-          const regex = /([а-яА-Я0-9_a-zA-Z]+)\s*\s*\[\s*((?:[а-яА-Я0-9_a-zA-Z]+)(?:\s*[,]\s*[а-яА-Я0-9_a-zA-Z]+)*)\s*\]\s*;/gm;
-          let m;
-          let res = {};
-          while ((m = regex.exec(this.structure)) !== null) {
-            // This is necessary to avoid infinite loops with zero-width matches
-            if (m.index === regex.lastIndex) {
-              regex.lastIndex++;
+    var app = new Vue({
+        el: '#app',
+        data: () => {
+            return {
+                title: "Тренажер реляционной алгебры",
+                tables: {},
+                query: '',
+                structure: ``,
+                resultTab: null,
+                selectedTable: null,
+                resultTables: {}
             }
-
-            var key;
-            m.forEach((function(match, groupIndex) {
-              switch (groupIndex) {
-                case 1:
-                key = match;
-                break;
-                case 2:
-                res[key] = {};
-                match = match.replace(" ", "");
-                res[key]["headers"] = match.split(",");
-                res[key]["rows"] = [];
-                break;
-              }
-            }).bind(res));
-          }
-          this.selectedTable = Object.keys(res)[0] ? Object.keys(res)[0] : "";
-          this.tables = res;
         },
-        // sendData() {
-        //   $.post('./data', {
-        //     query: this.query,
-        //     tables: JSON.stringify(this.tables),
-        //     definition: this.structure
-        //   }, (data) => {
-        //     this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
-        //     if(data.error) {
-        //         alert(data.message)
-        //     }
-        //     this.resultTables = data.views_data;
-        //   })
-        // },
-        sendData() {
-          var data = {
-            "error": false, 
-            "views_data": {
-              "R1": {
-                "headers": ["A", "B", "C"], 
-                "rows": [[1, 2, 3], [4, 5, 6]]}, 
-                "R2": {
-                  "headers": ["D", "E"], 
-                  "rows": [[7, 8], [9, 10], [11, 12],[7, 8], [9, 10],[7, 8], [9, 10]]}
+        created() {
+
+        },
+        methods: {
+            deleteRow(table, key) {
+                this.$set(this.tables[table].rows, key, undefined);
+
+                this.tables[table].rows = this.tables[table].rows.filter((item) => {
+                    return (item)
+                })
+
+                //console.log(this.tables[table]);
+
+            },
+            sendStructure() {
+                const regex = /([а-яА-Я0-9_a-zA-Z]+)\s*\s*\[\s*((?:[а-яА-Я0-9_a-zA-Z]+)(?:\s*[,]\s*[а-яА-Я0-9_a-zA-Z]+)*)\s*\]\s*;/gm;
+                let m;
+                let res = {};
+                while ((m = regex.exec(this.structure)) !== null) {
+                    // This is necessary to avoid infinite loops with zero-width matches
+                    if (m.index === regex.lastIndex) {
+                        regex.lastIndex++;
+                    }
+
+                    var key;
+                    m.forEach((function (match, groupIndex) {
+                        switch (groupIndex) {
+                            case 1:
+                                key = match;
+                                break;
+                            case 2:
+                                res[key] = {};
+                                match = match.replace(" ", "");
+                                res[key]["headers"] = match.split(",");
+                                res[key]["rows"] = [];
+                                break;
+                        }
+                    }).bind(res));
                 }
-              };
-              this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
-              this.resultTables = data.views_data;
+                this.selectedTable = Object.keys(res)[0] ? Object.keys(res)[0] : "";
+                this.tables = res;
+            },
+            // sendData() {
+            //   $.post('./data', {
+            //     query: this.query,
+            //     tables: JSON.stringify(this.tables),
+            //     definition: this.structure
+            //   }, (data) => {
+            //     this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
+            //     if(data.error) {
+            //         alert(data.message)
+            //     }
+            //     this.resultTables = data.views_data;
+            //   })
+            // },
+            sendData() {
+                var data = {
+                    "error": false,
+                    "views_data": {
+                        "R1": {
+                            "headers": ["A", "B", "C"],
+                            "rows": [[1, 2, 3], [4, 5, 6]]
+                        },
+                        "R2": {
+                            "headers": ["D", "E"],
+                            "rows": [[7, 8], [9, 10], [11, 12], [7, 8], [9, 10], [7, 8], [9, 10]]
+                        }
+                    }
+                };
+                this.resultTab = Object.keys(data.views_data)[0] ? Object.keys(data.views_data)[0] : "";
+                this.resultTables = data.views_data;
             },
             selectTab(table) {
-              this.selectedTable = table;
+                this.selectedTable = table;
             },
             selectResultTab(table) {
-              this.resultTab = table;
+                this.resultTab = table;
             },
             addRow() {
-              let = new_row = [];
-              for (var field in this.tables[this.selectedTable].headers) {
-                new_row[field] = "";
-              }
-              this.$set(this.tables[this.selectedTable].rows, this.tables[this.selectedTable].rows.length, new_row);
+                let =
+                new_row = [];
+                for (var field in this.tables[this.selectedTable].headers) {
+                    new_row[field] = "";
+                }
+                this.$set(this.tables[this.selectedTable].rows, this.tables[this.selectedTable].rows.length, new_row);
             }
-          },
-          computed: {
+        },
+        computed: {
             tables_length() {
-              return Object.keys(this.tables).length;
+                return Object.keys(this.tables).length;
             }
-          }
-        })
-      </script>
-    </body>
+        }
+    })
+</script>
+</body>
 
-    </html>
+</html>
